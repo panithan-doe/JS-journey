@@ -1,6 +1,7 @@
 # JS-journey
 This is my github for archive my journey of "JavaScript" to be a great Dev! This is the result by learning from the course "The complete JavaScript Course" by " " 
 
+<ins>Note</ins> : to find the unfinished contents, press the `Ctrl + F` and type `unfinished`
 
 list of contents
 1. What is JavaScript
@@ -21,7 +22,13 @@ For front-end, on dynamic effects web browser, React, Angular and Vue is 100% ba
 - `/* comment */` : comment in multiple lines.
 
 ## Data Types
-declare `let` just the first time.
+
+## declaration
+`let` can change the value <br>
+`const` **cannot** change the value, need to initialize <br>
+`var` can change the value, [unfinished] <br>
+
+<ins>Note</ins> : this is not <ins>mandatory</ins> (บังคับ) to declare but it's a terrible idea if you're not declare it :weary:. why? [unfinished]
 
 - Primative
   1. Number : `let age = 23` (JavaScript call integer and decimal as 'Number'.)
