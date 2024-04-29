@@ -41,3 +41,23 @@ For front-end, on dynamic effects web browser, React, Angular and Vue is 100% ba
  
   <ins>Note</ins> : JavaScript is <ins>*dynamic typing</ins> -> do not have to manually define the data type of value.
 - Object
+
+## String
+concatinate 
+1. ```javascript
+   const doe = "I'm " + firstName + ", a " + (year-birthYear) + " years old " + job + "!"
+2. ```javascript
+   const doeNew = `I'm ${firstName}, a ${year-birthYear} years old ${job}!
+   ```
+   use  ``` ` ` ``` , use `${}` to contain the value and variable
+
+3. multiline string <br>
+   use `\n` and `\n\` to the new line
+   ```javascript
+   console.log('String\nis\neasy')
+   ```
+   ```javascript
+   console.log('String\n\
+   is\n\
+   easy')
+   ```
