@@ -20,6 +20,7 @@ For front-end, on dynamic effects web browser, React, Angular and Vue is 100% ba
 - `console.log()` : print to the console (if in console on browser, no need it).
 - `// comment` : comment in line.
 - `/* comment */` : comment in multiple lines.
+- `prompt()` : to alert input box on the web page.
 
 ## Data Types
 
@@ -50,9 +51,8 @@ concatinate
    const doeNew = `I'm ${firstName}, a ${year-birthYear} years old ${job}!
    ```
    use  ``` ` ` ``` , use `${}` to contain the value and variable
-
 3. multiline string <br>
-   use `\n` and `\n\` to the new line
+   use `\n` and `\n\` to the new line <br>
    ```javascript
    console.log('String\nis\neasy')
    ```
@@ -61,3 +61,58 @@ concatinate
    is\n\
    easy')
    ```
+
+## Conversion & Coercion
+```javascript
+// Conversion
+const x = '1998'
+x = Number(x)
+
+// Coercion (convert behind the scene)
+console.log('I am ' + 21 + ' years old.')
+```
+<ins>Note</ins> : if you use `-`, `*`, `/` operator. it will be convert to number
+```javascript
+console.log('21' - '1')
+
+// the result will be 20, number type.
+```
+<ins>Note</ins> : **NaN** (not a number) is actually a number! you can remember it as **invalid number**. 
+
+
+## Equality Operators (== vs ===)
+
+== (loose)
+```javascript
+'18' == 18`
+// true
+```
+=== (strict)
+```javascript
+'18' === 18
+// false
+```
+
+<ins>Note</ins> avoid `==` (loose), always use `===` (strict). this will help you to find bugs! <br><br>
+
+because we use `===`. 
+
+```javascript
+const num = prompt('Enter number:')
+// input 23 
+// type of num will be String ('23')
+// num === 23 will be false
+// this is a bug
+```
+so you need to conversion:
+```javascript
+const number = Number(prompt('Enter number:'))
+// input 23
+// type of num will be Number (23)
+// number 
+```
+
+## Logical Operators
+- and `&&`
+- or `||`
+- not `!`
