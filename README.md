@@ -102,6 +102,7 @@ const num = prompt('Enter number:')
 // input 23 
 // type of num will be String ('23')
 // num === 23 will be false
+
 // this is a bug
 ```
 so you need to conversion:
@@ -109,7 +110,7 @@ so you need to conversion:
 const number = Number(prompt('Enter number:'))
 // input 23
 // type of num will be Number (23)
-// number 
+// num === 23 will be true
 ```
 
 ## Logical Operators
