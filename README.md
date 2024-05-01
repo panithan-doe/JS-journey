@@ -117,3 +117,80 @@ const number = Number(prompt('Enter number:'))
 - and `&&`
 - or `||`
 - not `!`
+
+## Switch statement
+example:
+```javascript
+const day = 'tuesday'
+
+switch(day) {
+    case 'monday': 
+        console.log('this is monday😒')
+        break;
+    case 'tuesday': // day === 'tuesday'
+        console.log('this is tuesday😤')
+        break;
+    case 'wednesday':
+        console.log('this is wednesday🙁')
+        break;
+    case 'thursday':
+        console.log('this is thursday😶')
+        break;
+    case 'friday':
+        console.log('this is friday😍')
+        console.log('wowwoowo!')
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('this is ' + day + '🥰')
+        console.log('enjoy the weekend!')
+        break;
+    default:
+        console.log('not a valid day!')
+}
+
+// output is "this is tuesday😤"
+```
+
+<ins>Note</ins> : don't forget to add `break`
+
+```javascript
+case 'tuesday':
+        console.log('this is tuesday😤')
+        // no break;
+
+// the output will also do the next case :
+// "this is tuesday😤"
+// "this is wednesday🙁" --> next case was executed
+```
+
+the next case will execute and chain next, next, next ... until found `break` or `default` case
+
+## Statement & Expression
+
+**expression** : a piece of code that produce the value itself. <br>
+- `3+4` <br>
+- `1991` <br>
+- `true && false && !false`
+
+**statement** : a bigger piece of code that execute and no produce the value itself.
+- ```javascript
+  if (23 > 1) {
+    console.log('fuyohh!')
+  }
+  ```
+
+## (Ternary) Conditional Operator (?)
+use `?` for condition. <br>
+`[condition] ? [if part] : [else part]`
+```javascript
+const age = 23
+age >= 18 ? console.log('I like to drink wine🍷') : console.log('I like to drink milk🥛')
+```
+you can also store the value from `?` condition into the variable <br>
+```javascript
+const age = 23
+const drink = age >= 18 ? 'wine pls🍷' : 'milk pls🥛'
+console.log(drink)
+```
+this will store `'wine pls🍷'` into `drink` variable.
