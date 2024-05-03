@@ -215,3 +215,11 @@ use the latest Google Chrome!
 use **Babel** to transplie and polyfill your code (convert most modern JS to ES5). but this course no need to use it.
 
 ## The section 2 was is done!
+
+
+
+# Section 3 : JavaScript Fundamental Part2
+
+We will learn the ***functions***, ***objects*** and ***loops*** in this section.
+
+## 
