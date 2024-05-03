@@ -6,14 +6,14 @@ This is my github for archive my journey of "JavaScript" to be a great Dev! This
 list of contents
 1. What is JavaScript
 
-
+# Section 1 : Welcome
 
 ## What is JavaScript
 JavaScript (JS) is the most use language for developer. Great for front-end but it also use for back-end. 
 For front-end, on dynamic effects web browser, React, Angular and Vue is 100% based on JS. For back-end, on web sever will use node.js. This contents focus on front-end. JS can build anything whether Native mobile apps and Native desktop apps. It's very <ins>mind-blowing</ins> 
 
 
-# Section 1
+# Section 2 : JavaScript Fundamental Part1
 
 ## Commands & Functions
 - `alert()` : to alert on the web page.
@@ -194,3 +194,24 @@ const drink = age >= 18 ? 'wine pls🍷' : 'milk pls🥛'
 console.log(drink)
 ```
 this will store `'wine pls🍷'` into `drink` variable.
+
+
+## JavaScript Released: ES5, ES6+ and ESNext
+
+- 1995 : very first version of JavaScript, called 'Mocha'.
+- 1996 : rename to 'LiveScript' and then **'JavaScript'** in sequence. use **Java** in the name because this time has the hottest language is **Java** but nothing to do with Java (just for marketing).
+- 1997 : ES1 (ECMAScript 1).
+- 2009 : ES5 (ECMAScript 5) is released with lots of great new features.
+- 2015 : ES6/ES2015 (ECMAScript2015) was released: **biggest update to the language ever!**
+- 2016 : Release of ES2016/ES2017/ES2018/ES2019/ES2020/.../ES2999 😅
+
+<ins>Note</ins> : the code of JavaScript written backward in 1997 is still work on the modern JavaScript engine! (ก็คือการเขียนแบบเก่ายังสามารถรันได้กับ engine ปัจจุบัน). this is the reason why the old website keepworking forever. <br>
+<ins>Note</ins> : ES5 is fully supported in all browsers. ES6+ can use most features in production with **transpiling** and **polyfilling** <br>
+
+
+### during development 
+use the latest Google Chrome!
+### during production
+use **Babel** to transplie and polyfill your code (convert most modern JS to ES5). but this course no need to use it.
+
+## The section 2 was is done!
