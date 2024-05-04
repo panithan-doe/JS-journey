@@ -222,4 +222,39 @@ use **Babel** to transplie and polyfill your code (convert most modern JS to ES5
 
 We will learn the ***functions***, ***objects*** and ***loops*** in this section.
 
-## 
+## Strict mode
+use `'use strict'` at the first line of entire code. <br>
+`'use strict'` help us to find the bugs easier!
+
+```javascript
+'use strict';
+
+let hasDriversLicense = false;
+hasDriverLicense = true; // this will occur error on the console!
+```
+the error is that you forgot the `'s'` in the `hasDriversLicense`, if you're not use `'use strict'`, the error will invisible to find.
+
+
+## Functions
+declare `function` at the first part of function.
+
+```javascript
+function printHaiyah() {
+  console.log('Haiyahhh!')
+}
+```
+
+if you call this function `printHaiyahh()`, the result will be `Haiyahhh!` on the console.
+
+### pass the data to the function.
+```javascript
+function fruitProcessor(apples, oranges) {
+    console.log(apples, oranges)
+}
+```
+### return the value of function.
+```javascript
+function add(val1, val2) {
+  return val1 + val2
+}
+```
