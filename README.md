@@ -246,15 +246,66 @@ function printHaiyah() {
 
 if you call this function `printHaiyahh()`, the result will be `Haiyahhh!` on the console.
 
-### pass the data to the function.
+- pass the data to the function.
 ```javascript
 function fruitProcessor(apples, oranges) {
     console.log(apples, oranges)
 }
 ```
-### return the value of function.
+- return the value of function.
 ```javascript
 function add(val1, val2) {
-  return val1 + val2
+    return val1 + val2
+}
+```
+
+
+## Function declaration vs Function expression
+- function declaration
+```javascript
+function calAge (birthYear) {
+    return 2024 - birthYear
+}
+
+// const age = calAge (2002)
+```
+- function expression
+```javascript
+const calAge = function(birthYear) {
+    return 2024 - birthYear
+}
+
+// const age = calAge(2002)
+```
+
+## Arrow function (=>)
+shorter and faster to write!
+
+`<function_name> = [parameter(s)] => [return value]`
+
+```javascript
+const calAge = birthYear => 2024 - birthYear
+
+// const age = calAge(2002)
+```
+if it have more calculation inside, use `{}` :
+```javascript
+const yearUntilRetirement = birthYear => {
+    const age = 2024 - birthYear
+    const retirement = 60 - age
+    return retirement    // need to use return statement
+}
+
+```
+
+more examples
+
+```javascript
+const add = (value1, value2) => value1 + value2
+```
+
+```javascript
+const printFuyohhh = () => {
+  console.log('Fuyohhh!')
 }
 ```
