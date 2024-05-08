@@ -309,3 +309,28 @@ const printFuyohhh = () => {
   console.log('Fuyohhh!')
 }
 ```
+
+<br><br><br>
+[unfinish]
+<br><br><br>
+
+# Dev skills & Editor setup 
+## Problem Solving
+**Example** <br>
+"We need a function that reverses whatever we pass into it."
+<br>
+there are 4 steps to solve any problems.
+1. Make sure you 100% understand the problem. -> ask the right question to the problem.
+    - what does "whatever" means in this problem? we think it should be strings, numbers, and arrays.
+    - what to do if sonething else is passed in?
+    - what should be returned?
+    - How to recognize whether the argument is a number, a string, or an array?
+2. Devide and conquer -> break a big problem to smaller sub-problems.
+    - sub-problem 1 is check if argument is a number, a string, or an array.
+    - implement reversing a number.
+    - implement reversing a string.
+    - implement reversing an array.
+3. Research
+    - Google it! like Stack Overflow, chatgpt, etc...
+    - ex. "how to check if input is a number?"
+4. Write pseudo-code (for bigger problems)
