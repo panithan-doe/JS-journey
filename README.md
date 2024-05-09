@@ -314,7 +314,7 @@ const printFuyohhh = () => {
 [unfinish]
 <br><br><br>
 
-# Dev skills & Editor setup 
+# Section 4: Dev skills & Editor setup 
 ## Problem Solving
 **Example** <br>
 "We need a function that reverses whatever we pass into it."
