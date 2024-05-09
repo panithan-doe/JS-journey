@@ -334,3 +334,34 @@ there are 4 steps to solve any problems.
     - Google it! like Stack Overflow, chatgpt, etc...
     - ex. "how to check if input is a number?"
 4. Write pseudo-code (for bigger problems)
+
+## Debugging (Fixing error)
+1. Using `console.log` to find the bugs.
+   - use `console.log()` in each line that we wonder there is a bug.
+2. Using 'breakpoint'.
+   - first, open the console and click "source". <br> 
+     ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/ef55a246-5100-40c2-8760-dc4261e7f89e)
+
+   - click on your file. (script.js) <br>
+     ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/b80ab4a1-e83c-4ee9-946f-724fb20d89ff)
+     
+   - click to mark breakpoint. <br>
+     ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/2897d1ee-f54c-4626-ba4f-3134a839504e)
+     
+   - on the right of the console will show this part that show the current value. <br>
+     ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/d05d841c-a92f-4060-bf5b-d61d0e1572c1)
+     
+   - click the arrow to see the next execution line. <br>
+     ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/9a0ab55d-fc23-41ba-9c25-abb779cb9f2a)
+
+
+   you can use `debugger` statement to mark the breakpoint too. it will automatically open the debugging panel on the browser when you run. <br>
+   ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/43be7d47-3fcc-44ab-9803-5f6093a0aa88)
+
+
+
+useful command <br>
+- `console.warn()`: notify the warning value to the console. <br>
+- `console.error()`: notify the error value to the console. <br>
+- `console.table()`: showing the object in table form.
+
