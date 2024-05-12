@@ -4,7 +4,6 @@ body {
   font-size: 20px;
 }
 
-
 h1 {
   font-size: 30px;
 }
@@ -13,12 +12,9 @@ h1 {
   color: green;
 }
 
-
 #your-name {
   background-color: rgb(92, 217, 92);
   border: 2px solid #444;
   padding: 5px;
   margin: 100px;
 }
-
-
