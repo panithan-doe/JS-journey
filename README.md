@@ -365,3 +365,30 @@ useful command <br>
 - `console.error()`: notify the error value to the console. <br>
 - `console.table()`: showing the object in table form.
 
+
+# Section 5: DOM and Events Fundamentals
+
+**What is DOM:** DOM is like the tree of html file.
+```javascript
+<html> <!-- Root Element -->
+  
+  <head> 
+    <title>My title</title>
+  </head>
+  
+  <body>
+    <a href="test.html">My link</a>
+    <h1>My header</h1>
+  </body>
+  
+</html>
+```
+
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/60ceb624-32eb-42a3-b29f-d8e3ce350ea8)
+
+### manipulating command
+- `document.querySelector('[className|idName|...]')` <br>
+- document.querySelector()`.textContent` : to access the text content. <br>
+- document.querySelector()`.value` : to access the value. <br>
+
+- document.querySelector()`.addEventListener` (`[Event (ex. click)]`, function() { *do something...* ] })
