@@ -390,5 +390,9 @@ useful command <br>
 - `document.querySelector('[className|idName|...]')` <br>
 - document.querySelector()`.textContent` : to access the text content. <br>
 - document.querySelector()`.value` : to access the value. <br>
+- document.querySelector()`.style` `.[backgroundColor]` : to change the CSS style. <br>
 
 - document.querySelector()`.addEventListener` (`[Event (ex. click)]`, function() { *do something...* ] })
+
+
+เพิ่มเติม: inclusive คือนับตัวเริ่มและตัวท้าย (1-10 -> 1, 2, ..., 10) exclusive คือไม่นับตัวเริ่มและตัวท้าย (1-10 -> 2, 3, ..., 9)
