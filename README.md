@@ -396,3 +396,14 @@ useful command <br>
 
 
 เพิ่มเติม: inclusive คือนับตัวเริ่มและตัวท้าย (1-10 -> 1, 2, ..., 10) exclusive คือไม่นับตัวเริ่มและตัวท้าย (1-10 -> 2, 3, ..., 9)
+
+- `document.querySelectorAll('[className|idName|...]')` : เลือกคลาสที่มีชื่อนี้ทั้งหมด
+
+เพิ่มเติม : Modal คือ page element ที่ popup ออกมาจากหน้าจอ
+
+- document.querySelector`.classList` `.remove([className1, className2, ...])` : remove the class on element.
+
+#### keydown, keypress, keyup
+- document.addEventListener(`keydown`) : execute when the key was hit (a time).
+- document.addEventListener(`keypress`) : execute when the key was pressed (continuous).
+- document.addEventListener(`keyup`) : execute when the key was released (a time).
