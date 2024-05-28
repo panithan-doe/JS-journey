@@ -417,3 +417,16 @@ document.addEventListener('keydown', function (e) {
   // closeModal()
 })
 ```
+
+- document.querySelection().`add`(`[className]`) : add class to the element.
+- document.querySelection().`remove`(`[className]`) : remove class of the element.
+- document.getElementById(`idName`) : work the same as `querySelection` but doesn't need to type `#`
+
+- `toggle`
+  ```javascript
+  player0El.classList.toggle('player--active')
+  ```
+  if `player0E1` have class name `player--active`, it will add `player--active` class to `player0E1`. If not, it will remove `player--active` instead.
+
+# Section 6 : How JavaScript works behind the scene
+...
