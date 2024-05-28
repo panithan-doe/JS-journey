@@ -407,3 +407,13 @@ useful command <br>
 - document.addEventListener(`keydown`) : execute when the key was hit (a time).
 - document.addEventListener(`keypress`) : execute when the key was pressed (continuous).
 - document.addEventListener(`keyup`) : execute when the key was released (a time).
+- use exception (`e`) to recieve the key element.
+```javascript
+document.addEventListener('keydown', function (e) {
+  console.log(e.key + ' was pressed');
+  if (e.key === 'Escape') {
+    closeModal()
+  } 
+  // closeModal()
+})
+```
