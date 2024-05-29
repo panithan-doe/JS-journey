@@ -429,4 +429,29 @@ document.addEventListener('keydown', function (e) {
   if `player0E1` have class name `player--active`, it will add `player--active` class to `player0E1`. If not, it will remove `player--active` instead.
 
 # Section 6 : How JavaScript works behind the scene
-...
+
+## Programming paradigm
+in this section focus on 3 paradigm.
+- **procedural** : the language focus on linear calculation.
+- **OOP** : the language focus on object creating.
+- **functional** : the language focus on function creating.
+
+JavaScript can do all of that! <br>
+
+**Object** inherit methods from prototype. ex. **Array** <br>
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/28cad455-ce85-4bf1-bb6b-9ecdb1817ed9)
+
+## JavaScript is a **First-class function**
+- functions are treated as variables. 
+- functions can pass into functions
+  ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/d5bf42d9-ad9c-4b28-8c1b-1049aa4bdcb6)
+
+## JavaScript is Dynamically-typed language
+- ex.
+  ```javascript
+  let x = 10;
+  x = 'Jonas'
+  // change the type of x from 'Number' to 'String'
+  ```
+
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/e1618918-a822-42c3-85f6-b6dda849c5ba)
