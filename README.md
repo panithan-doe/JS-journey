@@ -455,3 +455,20 @@ JavaScript can do all of that! <br>
   ```
 
 ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/e1618918-a822-42c3-85f6-b6dda849c5ba)
+
+## JavaScript Engines
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/bc183109-135d-4a52-9be8-11ebb7428f4b)
+
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/dc3d6dc4-ca73-4547-af10-61ed496ca410)
+
+<br><br><br>
+## Compilation vs Interpretation
+Compilation : execute the whole file in once.<br>
+Interpretation : execute line by line.<br> 
+
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/b73e4155-470c-4a1b-a676-902940b25e2d)
+
+~~JavaScript is Interpretatoin~~
+**No! modern JavaScript now use a mix between Compilation and Interpretation**, called **Just-in-time**
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/1b5bdbf4-7b1d-4868-8530-2039fa0824ee)
+This a lot faster than Interpretation.
