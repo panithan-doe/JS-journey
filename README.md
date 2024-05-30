@@ -472,3 +472,41 @@ Interpretation : execute line by line.<br>
 **No! modern JavaScript now use a mix between Compilation and Interpretation**, called **Just-in-time**
 ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/1b5bdbf4-7b1d-4868-8530-2039fa0824ee)
 This a lot faster than Interpretation.
+
+... [unfinished]
+
+# Section 7 : Data Structures and Modern Operators
+
+Switching variable trick <br>
+```
+let [x, y] = [2, 3];
+```
+
+in normal way:
+```javascript
+const temp = x;
+x = y;
+y = temp;
+```
+
+using trick :
+```javascript
+[x, y] = [y, x]
+```
+
+access the array in array:
+```javascript
+const nested = [2, 4, [5, 6]];
+const [i, ,[j, k]] = nested;
+// i = 2, j = 5, k = 6
+```
+
+define the defualt value:
+```javascript
+const [p, q, r] = [8, 9]
+// p = 8, q = 9, r = undefined
+```
+```javascript
+const [p=1, q=1, r=1] = [8, 9]
+// p = 8, q = 9, r = 1
+```
