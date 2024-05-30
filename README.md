@@ -477,6 +477,8 @@ This a lot faster than Interpretation.
 
 # Section 7 : Data Structures and Modern Operators
 
+## Destructuring an Array
+
 Switching variable trick <br>
 ```
 let [x, y] = [2, 3];
@@ -501,7 +503,7 @@ const [i, ,[j, k]] = nested;
 // i = 2, j = 5, k = 6
 ```
 
-define the defualt value:
+define the default value:
 ```javascript
 const [p, q, r] = [8, 9]
 // p = 8, q = 9, r = undefined
@@ -509,4 +511,61 @@ const [p, q, r] = [8, 9]
 ```javascript
 const [p=1, q=1, r=1] = [8, 9]
 // p = 8, q = 9, r = 1
+```
+
+## Destructuring an Object
+
+```javascript
+const restaurant = {
+  name: "Nescafe",
+  location: "Huataphan",
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
+}
+```
+restaurant.name = "Nescafe" <br>
+restaurant.location = "Huataphan" <br>
+restaurant.categories: = ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
+```javascript
+const {
+  name,
+  categories
+} = restaurant
+```
+name = "Nescafe" <br>
+categories: = ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
+```javascript
+const {
+  location: loc,        // change the name "location" to "loc"
+  categories: tags      // change the name "categories" to "tags"
+} = restaurant
+```
+loc = "Huataphan" <br>
+tags = ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'] <br>
+
+<br>
+
+define the default value:
+```javascript
+const {
+  menu = [],  // it does not have "menu" in restaurant, so create "menu" and start with []
+  starterMenu: starters = [] // change the name "starterMenu" to starters, and set default to []
+
+} = restaurant
+```
+
+to re-assign variable
+```javascript
+let a = 111
+let b = 999
+const obj = {a: 7, b: 10, c: 12}
+{a, b} = obj  // error here
+```
+it will occur error, because when we use `{` `}`, JS expected the code block. so you need to use `(` `)`
+```javascript
+let a = 111
+let b = 999
+const obj = {a: 7, b: 10, c: 12};  // and do not foget ';' in front of '('
+({a, b} = obj)  // use the '(' ')'
+
+// a = 7, b = 10
 ```
