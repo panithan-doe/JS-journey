@@ -569,3 +569,51 @@ const obj = {a: 7, b: 10, c: 12};  // and do not foget ';' in front of '('
 
 // a = 7, b = 10
 ```
+
+## Spread operator (...)
+```javascript
+const arr = [7, 8, 9]
+```
+to add all elements of `arr` to the new array, the basic way is
+```javascript
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]]
+// badNewArr = [1, 2, 7, 8, 9]
+```
+but we have the better way to do this by using `...`
+```javascript
+const newArr = [1, 2, ...arr]
+// newArr = [1, 2, 7, 8, 9]
+```
+so the `...` is use to get all elements in the array
+```javascript
+console.log(arr)
+// [7, 8, 9]
+
+console.log(...arr)
+// 7, 8, 9
+```
+Spread operator can also use with Iterator:**arrays, strings, maps and sets**.
+for example:
+```javascript
+const str = "Hello"
+console.log(...str)
+
+// H e l l o 
+```
+but spread operator in ESC2018 is also work with **objects**! even though objects are not iterables <br>
+create a new object relate to existing object
+```javascript
+const restaurant {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  // ...
+}
+```
+adding new attributes (foundedIn and founder)
+```javascript
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Guiseppe'}
+```
+you can also copy the existing object
+```javascript
+const restaurantCopy = {...restaurant}
+```
