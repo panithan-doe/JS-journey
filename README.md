@@ -617,3 +617,34 @@ you can also copy the existing object
 ```javascript
 const restaurantCopy = {...restaurant}
 ```
+
+
+<br><br><br> 
+from the above. we use `...` to spread the elements. but you can use it to get the "rest" elements. <br>
+- if `...` is write on the right of `=` : spread
+  ```javascript
+  const arr1 = [3, 4]
+  const arr2 = [1, 2, ...arr1] 
+                       ^ 
+  // arr2 = [1, 2, 3, 4]
+  ```
+- if `...` is write on the left of `=` : rest 
+  ```javascript
+  const [a, b, ...others] = [1, 2, 3, 4, 5] /// ... is on the left of =
+                ^
+  // others = [3, 4, 5]
+  ```
+- rest arguments
+  ```javascript
+  const add = function(...numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+    return sum;
+  }
+
+  console.log(add(2, 3));          // 5
+  console.log(add(2, 2, 2));       // 6
+  console.log(add(1, 2, 3, 5, 7)); // 18
+  ```
