@@ -80,7 +80,7 @@ btnRoll.addEventListener('click', function() {
 
     }
   }
-
+  
 })
 
 
