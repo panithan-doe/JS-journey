@@ -141,6 +141,25 @@ createUsernames(accounts)
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// const deposits = movements.filter(mov => mov > 0)
+// const withdrawals = movements.filter(mov => mov < 0)
+
+// console.log(movements);
+// console.log(deposits);
+// console.log(withdrawals);
+
+const arr = [200, -300, 10, -20, 1000]
+const arrFiltered = arr.filter(function(a) {
+  return a > 0
+})
+
+// arrFiltered = [200, 10, 1000]
+
+// arrMaped = [210, -290, 20, -10, 1010]
+
+console.log(arrFiltered);
+
+
 // // for of
 // for (const movement of movements) {
 //   if (movement > 0) {
