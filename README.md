@@ -657,15 +657,23 @@ from the above. we use `...` to spread the elements. but you can use it to get t
 ```javascript
 let arr = ['a', 'b', 'c', 'd', 'e']
 ```
-- `slice()`
+- `slice(start, end)`
   ```javascript
   arr.slice(2)    // ['c', 'd', 'e']
   arr.slice(2, 4) // ['c', 'd']
   arr.slice(-2)   // ['d', 'e']
   ```
-- `splice()` : work the same as `slice` but it mutate to the original array
-- `reverse()`
-- `concat()`
+- `splice(start, deleteAmount, item1, item2, ...)` : to remove elements and replace it to which one was removed.
+  ```javascript
+  const array = [3, 5, 2, 12, 7];
+  const removedElements1 = array.splice(1, 2, 9, 11);  // remove index 1, 2 and replace by 9, 11
+  
+  console.log(removedElements); // [5, 2] (removed elements : ตัวที่ลบ) 
+  console.log(array); // [3, 9, 11, 12, 7] (modified array with new elements added : array หลังลบ)
+
+  ``` 
+- `reverse()`  
+- `concat()` 
 - `join()` : join the elements with specific characters, return string
 
 ## For Of (it's in some section but we will talk about it in this section)
@@ -696,3 +704,30 @@ movements.forEach(function(mov, i, arr) {
 })
 ```
 **<ins>Note<ins>** : you cannot use `break` operator on `forEach`
+
+## Data transformations : map, filter, reduce
+there are 3 important and popular array methods
+
+```javascript
+const arr = [200, -300, 10, -20, 1000]
+```
+
+1. `map` : apply the callback function to all element, also return the value (the advantage of map)
+```javascript
+const arrMaped = arr.map(function(a) {
+  return a + 10
+})
+
+// arrMaped = [210, -290, 20, -10, 1010]
+```
+<ins>**NOTE**<ins> : work the same as `forEach`, but `forEach` is not return the value
+
+2. `filter` : 
+```javascript
+const arrFiltered = arr.filter(function(a) {
+  return a > 0
+})
+
+// arrFiltered = [200, 10, 1000]
+```
+3. `reduce` :
