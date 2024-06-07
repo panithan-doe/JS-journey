@@ -85,15 +85,36 @@ const displayMovement = function (movements) {
 
 displayMovement(account1.movements);
 
+// Create Username
+
+const createUsernames = function(accs) {
+  
+  accs.forEach(function(acc) {
+    acc.username = acc.owner
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0])
+    .join('');
+
+  })
+
+};
+// console.log(createUsernames('Doe Panithan Jampahom'))
+
+createUsernames(accounts)
+
+
+// 
+
 // ---------------------------------------------------
 
 // const displayMovement = function(movements) {
-  
+
 //   containerMovements.innerHTML = '';
 
 //   movements.forEach(function(movement, i) {
 //     const type = movement > 0 ? 'deposit' : 'withdrawal';
-    
+
 //     const html = `
 //     <div class="movements__row">
 //       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
@@ -105,7 +126,6 @@ displayMovement(account1.movements);
 //   })
 
 // }
-
 
 // displayMovement(account1.movements)
 
