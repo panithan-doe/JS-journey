@@ -617,21 +617,19 @@ you can also copy the existing object
 ```javascript
 const restaurantCopy = {...restaurant}
 ```
-
-
-<br><br><br> 
+<br><br>
 from the above. we use `...` to spread the elements. but you can use it to get the "rest" elements. <br>
 - if `...` is write on the right of `=` : spread
   ```javascript
   const arr1 = [3, 4]
   const arr2 = [1, 2, ...arr1] 
-                       ^ 
+  //                   ^ 
   // arr2 = [1, 2, 3, 4]
   ```
 - if `...` is write on the left of `=` : rest 
   ```javascript
   const [a, b, ...others] = [1, 2, 3, 4, 5] /// ... is on the left of =
-                ^
+  //            ^
   // others = [3, 4, 5]
   ```
 - rest arguments
@@ -648,3 +646,53 @@ from the above. we use `...` to spread the elements. but you can use it to get t
   console.log(add(2, 2, 2));       // 6
   console.log(add(1, 2, 3, 5, 7)); // 18
   ```
+
+[unfinished]
+
+# Section 8 : A Closer Look at Functions 
+[unfinished]
+
+# Section 9 : Working With Arrays
+## Array Methods
+```javascript
+let arr = ['a', 'b', 'c', 'd', 'e']
+```
+- `slice()`
+  ```javascript
+  arr.slice(2)    // ['c', 'd', 'e']
+  arr.slice(2, 4) // ['c', 'd']
+  arr.slice(-2)   // ['d', 'e']
+  ```
+- `splice()` : work the same as `slice` but it mutate to the original array
+- `reverse()`
+- `concat()`
+- `join()` : join the elements with specific characters, return string
+
+## For Of (it's in some section but we will talk about it in this section)
+```javascript
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+```
+
+```javascript
+for (const movement of movements) {
+  // ...
+}
+```
+
+## ForEach
+do the function to the elements 
+```javascript
+movements.forEach(function(movement) {
+  // ...
+})
+
+// add function to each movement
+```
+you also know there are three argumants in function <br>
+`function(element, [index], [entire])`
+```javascript
+movements.forEach(function(mov, i, arr) {
+  console.log(mov, i, arr);
+})
+```
+**<ins>Note<ins>** : you cannot use `break` operator on `forEach`
