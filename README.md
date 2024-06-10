@@ -738,4 +738,14 @@ const arrReduced = arr.reduce(function(acc, cur, i, arr) {
 
 // arrReduced = 890
 ```
-<ins>**NOTE**</ins> : you can see `acc` is the first parameter, which is accumulate (ตัวสะสม). and the `reduce(callfunc, init_acc)` have 2 parameters. ``
+<ins>**NOTE**</ins> : you can see `acc` is the first parameter, which is accumulate (ตัวสะสม). and the `reduce(callfunc, init_acc)` have 2 parameters.
+
+## The find Method
+`find()` : return the first element that is true with the condition
+```javascript
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const firstWithdrawal = movements.find(mov => mov < 0)
+
+// firstWithdrawal = -400
+```
+<ins>**NOTE**</ins> : the ENTER button will work as click event when the cursor is in the fields.
