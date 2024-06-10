@@ -714,20 +714,28 @@ const arr = [200, -300, 10, -20, 1000]
 
 1. `map` : apply the callback function to all element, also return the value (the advantage of map)
 ```javascript
-const arrMaped = arr.map(function(a) {
-  return a + 10
+const arrMaped = arr.map(function(cur, i, arr) {
+  return cur + 10;
 })
 
 // arrMaped = [210, -290, 20, -10, 1010]
 ```
-<ins>**NOTE**<ins> : work the same as `forEach`, but `forEach` is not return the value
+<ins>**NOTE**</ins> : work the same as `forEach`, but `forEach` is not return the value
 
 2. `filter` : 
 ```javascript
-const arrFiltered = arr.filter(function(a) {
-  return a > 0
+const arrFiltered = arr.filter(function(cur, i, arr) {
+  return cur > 0;
 })
 
 // arrFiltered = [200, 10, 1000]
 ```
-3. `reduce` :
+3. `reduce` : return a single value
+```javascript
+const arrReduced = arr.reduce(function(acc, cur, i, arr) {
+  return acc + cur;
+}, 0)  // 0 is initial accumulator value.
+
+// arrReduced = 890
+```
+<ins>**NOTE**</ins> : you can see `acc` is the first parameter, which is accumulate (ตัวสะสม). and the `reduce(callfunc, init_acc)` have 2 parameters. ``
