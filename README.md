@@ -741,7 +741,7 @@ const arrReduced = arr.reduce(function(acc, cur, i, arr) {
 <ins>**NOTE**</ins> : you can see `acc` is the first parameter, which is accumulate (ตัวสะสม). and the `reduce(callfunc, init_acc)` have 2 parameters.
 
 ## The find Method
-`find()` : return the first element that is true with the condition
+`find()` : return the first element that is true with the conditions
 ```javascript
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const firstWithdrawal = movements.find(mov => mov < 0)
@@ -749,3 +749,83 @@ const firstWithdrawal = movements.find(mov => mov < 0)
 // firstWithdrawal = -400
 ```
 <ins>**NOTE**</ins> : the ENTER button will work as click event when the cursor is in the fields.
+
+## The findIndex Method
+`findIndex()` : return the index of the element that is true with the conditions
+```javascript
+const index = accounts.findIndex(acc => acc.username === currentAccount.username)
+```
+this is similar to `indexOf()` method but it can use with only the value 
+```javascript
+const arr = [2, 3, 5, 7, 9]
+arr.indexOf(5)  // 2
+```
+
+## some and every
+- `some()` : to check "any" element which true in that conditions (is in)
+  ```javascript
+  const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+  movements.some(mov => mov > 300);  // true
+  movements.some(mov => mov > 5000);  // false
+  ```
+
+
+  we have `includes()` method which work similar to `some()` :
+  ```javascript
+  const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+  movements.includes(200)  // true
+  movements.includes(999)  // false
+  
+  ```
+  so, `includes()` will check using the value only but `some()` will check using the conditions
+
+- `every()` : to check "every" element which true in that conditions
+  ```javascript
+  const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+  movements.every(mov => mov > 0);  // false
+  movements.every(mov => mov < 1000000);  // true
+  ```
+
+## flat and flatMap
+to flat the arrays in arrays (nested array) 
+- `flat()` :
+  ```javascript
+  const arr = [[[1, 2], 3], [[4, 5], 6], 7, 8]
+  arr.flat();   // [[1, 2], 3, [4, 5], 6, 7, 8]
+  arr.flat(2);  // [1, 2, 3, 4, 5, 6, 7, 8]
+  ```
+  you can use it in chaining, for example :
+  ```javascript
+  /*
+  account1 = {
+    movements: [30, 20, -10]
+  }
+  account2 = {
+    movements: [50, 50, 50]
+  }
+  account3 = {
+    movements: [40, -20, -20]
+  }
+  accounts = [account1, account2, account3]
+  
+  */
+
+  const overallBalance = accounts
+    .map(acc => acc.movements)          // [[30, 20, -10], [50, 50, 50], [40, -20, -20]]
+    .flat()                             // [30, 20, -10, 50, 50, 50, 40, -20, -20]
+    .reduce((acc, mov) => acc + mov);   // 190
+
+  // overallBalance = 190
+  ```
+  we can also use the `flatMap()` to wrap the `map()` and `flat()` methods together
+- `flatMap()` :
+  ```javascript
+  const overallBalance2 = accounts
+    .flatMap(acc => acc.movements)      // [30, 20, -10, 50, 50, 50, 40, -20, -20]
+    .reduce((acc, mov) => acc + mov);   // 190
+
+  // overallBalance = 190
+  ```
+
+## Sorting Array
+`sort()` : to sort the array (*mutate)
