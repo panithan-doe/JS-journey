@@ -62,7 +62,7 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 // ---------------------------------------------
-// display movements
+// Display Movements
 const displayMovement = function (movements) {
   containerMovements.innerHTML = ''; // set text to empty
   // NOTE: like textContent but innerHTML is including HTML tags, textContent just text itself
@@ -75,7 +75,7 @@ const displayMovement = function (movements) {
       <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${type === 'deposit' ? '+' : ''}${mov}€</div>
     </div>
     `;
 
@@ -83,28 +83,118 @@ const displayMovement = function (movements) {
   });
 };
 
-displayMovement(account1.movements);
+// Display Balance
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+
+  labelBalance.textContent = `${acc.balance}€`;
+};
+
+// Display summary
+const displaySummary = function (acc) {
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  const out = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  const interest = acc.movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * acc.interestRate)/100)
+    .filter(int => int >= 1)  // we determine the rules of this bank if that interest is at least 1 euro 
+    .reduce((acc, int) => acc + int, 0)
+
+  labelSumIn.textContent = `${incomes}€`;
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumInterest.textContent = `${interest}€`;
+};
 
 // Create Username
-
-const createUsernames = function(accs) {
-  
-  accs.forEach(function(acc) {
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
     acc.username = acc.owner
-    .toLowerCase()
-    .split(' ')
-    .map(word => word[0])
-    .join('');
-
-  })
-
+      .toLowerCase()
+      .split(' ')
+      .map(word => word[0])
+      .join('');
+  });
 };
-// console.log(createUsernames('Doe Panithan Jampahom'))
 
-createUsernames(accounts)
+createUsernames(accounts);
+
+// Update the UI
+const updateUI = function(acc) {
+  // Display movements
+  displayMovement(acc.movements);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  displaySummary(acc);
+
+}
 
 
-// 
+// Event handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting (prevent the page reload)
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  // if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount && currentAccount.pin === Number(inputLoginPin.value)) {
+    console.log(`LOGIN : ${currentAccount.owner}`);
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 1;
+
+    updateUI(currentAccount);
+
+    // Clear the input fields and cursor
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur(); // <- remove cursor
+  }
+});
+
+// Transfer Event
+btnTransfer.addEventListener('click', function(e) {
+  // Prevent reloading page
+  e.preventDefault()
+
+  const amount = Number(inputTransferAmount.value)
+  const receiverAcc = accounts.find((acc) => inputTransferTo.value === acc.username)
+
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (amount > 0 && 
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    console.log('Transfer Valid.');
+
+    // Doing the transfer
+    currentAccount.movements.push(-amount)
+    receiverAcc.movements.push(amount)
+
+    updateUI(currentAccount)
+
+  }
+
+})
+
 
 // ---------------------------------------------------
 
@@ -139,7 +229,18 @@ createUsernames(accounts)
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+// console.log(movements);
+// console.log(firstWithdrawal);
+
+// console.log(accounts);
+
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis')
+
+// console.log(account);
 
 // const deposits = movements.filter(mov => mov > 0)
 // const withdrawals = movements.filter(mov => mov < 0)
@@ -148,17 +249,12 @@ createUsernames(accounts)
 // console.log(deposits);
 // console.log(withdrawals);
 
-const arr = [200, -300, 10, -20, 1000]
-const arrFiltered = arr.filter(function(a) {
-  return a > 0
-})
+// const arr = [200, -300, 10, -20, 1000]
+// const arrReduced = arr.reduce(function(acc, cur, i, arr) {
+//   return acc + cur;
+// }, 0)  // 0 is initial accumulator value.
 
-// arrFiltered = [200, 10, 1000]
-
-// arrMaped = [210, -290, 20, -10, 1010]
-
-console.log(arrFiltered);
-
+// console.log(arrReduced);
 
 // // for of
 // for (const movement of movements) {
