@@ -828,4 +828,13 @@ to flat the arrays in arrays (nested array)
   ```
 
 ## Sorting Array
-`sort()` : to sort the array (*mutate)
+`sort()` : to sort the array (*mutate) 
+<ins>**NOTE**</ins> : the `sort()` method will convert the elements to string before sort!
+```javascript
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+movements.sort()  // [-130, -400, -650, 1300, 200, 3000, 450, 70]
+```
+as you can see. even the type of value is `number`. but the array after sort was sorted by `string`, it's not correct. so use this below.
+```javascript
+
+```
