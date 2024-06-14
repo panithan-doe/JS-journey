@@ -836,5 +836,19 @@ movements.sort()  // [-130, -400, -650, 1300, 200, 3000, 450, 70]
 ```
 as you can see. even the type of value is `number`. but the array after sort was sorted by `string`, it's not correct. so use this below.
 ```javascript
+// Ascending
+movements.sort((a, b) => {
+  if (a > b) return 1
+  if (a < b) return -1
+})
+```
+return < 0 : a, b <br>
+return > 0 : b, a
+```javascript
+// Ascending 
+movements.sort((a, b) => a - b)
+console.log(movements);
 
+// Decending
+movements.sort((a, b) => b - a)
 ```
