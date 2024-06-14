@@ -888,3 +888,28 @@ const movementsUI = Array.from(document.querySelectorAll('.movements__value'), (
 
 // movementsUI = [1300, 70, -130, -650, 3000, -400, 450, 200]
 ```
+
+[unfinished]
+
+
+# Section 10 : Numbers, Dates, Intl and Timers
+
+## Conversion
+string to number 
+- `Number('23')`
+- `+'23'`
+
+`parseInt()` : to get the number from string
+- `parseInt('30px')` => 30
+- `parseInt('25r')` => 25
+you cannot use with string which have number after string
+- `parseInt('e5')` : => NaN
+
+
+
+
+
+[unfinished]
+
+# Section 11 : Advanced DOM and Events
+
