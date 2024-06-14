@@ -852,3 +852,39 @@ console.log(movements);
 // Decending
 movements.sort((a, b) => b - a)
 ```
+## More Ways of Creating and Filling Arrays
+we know how to create the array with `new Array()` but it have some weird behaviors if we have 1 element 
+```
+// Normal
+const a = new Array(1, 2, 3, 4, 5, 6)  // [1, 2, 3, 4, 5, 6]
+
+// With 1 element
+const x = new Array(7)  // [empty × 7]
+```
+you can see the `x` array will be an empty array with size `7` 
+- `filling(value, [start], [end])` : to fill the value to array (*mutate)
+  ```javascript
+  x.fill(6)  // [6, 6, 6, 6, 6, 6, 6]  
+  ```
+  ```javascript
+  x.fill(6, 3, 5)  // [empty × 3, 6, 6, empty × 2]
+  ```
+  ```javascript
+  a.fill(13, 3)  // [1, 2, 3, 13, 13, 13]
+  ```
+creating array by `from(object, callbackfunc())` : 
+```javascript
+const y = Array.from({length: 7}, () => 1)
+// y = [1, 1, 1, 1, 1, 1, 1]
+```
+```javascript
+const y = Array.from({length: 7}, (cur, i) => i + 1)
+// y = [1, 2, 3, 4, 5, 6, 7]
+```
+<ins>**NOTE**</ins> : we can change `cur` to `_` that we will throwaway that parameter (it's unnecessary to use)
+```javascript
+// from Bankist project
+const movementsUI = Array.from(document.querySelectorAll('.movements__value'), (mov) => Number(mov.textContent.replace('€', '')))
+
+// movementsUI = [1300, 70, -130, -650, 3000, -400, 450, 200]
+```
