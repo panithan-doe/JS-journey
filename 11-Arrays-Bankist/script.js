@@ -63,11 +63,14 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // ---------------------------------------------
 // Display Movements
-const displayMovement = function (movements) {
+// Set the sort value 'false' by default
+const displayMovement = function (movements, sort = false) {
   containerMovements.innerHTML = ''; // set text to empty
   // NOTE: like textContent but innerHTML is including HTML tags, textContent just text itself
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -75,7 +78,9 @@ const displayMovement = function (movements) {
       <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${type === 'deposit' ? '+' : ''}${mov}€</div>
+      <div class="movements__value">${
+        type === 'deposit' ? '+' : ''
+      }${mov}€</div>
     </div>
     `;
 
@@ -102,9 +107,9 @@ const displaySummary = function (acc) {
 
   const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * acc.interestRate)/100)
-    .filter(int => int >= 1)  // we determine the rules of this bank if that interest is at least 1 euro 
-    .reduce((acc, int) => acc + int, 0)
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter(int => int >= 1) // we determine the rules of this bank if that interest is at least 1 euro
+    .reduce((acc, int) => acc + int, 0);
 
   labelSumIn.textContent = `${incomes}€`;
   labelSumOut.textContent = `${Math.abs(out)}€`;
@@ -125,7 +130,7 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 
 // Update the UI
-const updateUI = function(acc) {
+const updateUI = function (acc) {
   // Display movements
   displayMovement(acc.movements);
 
@@ -134,9 +139,7 @@ const updateUI = function(acc) {
 
   // Display summary
   displaySummary(acc);
-
-}
-
+};
 
 // Event handler
 let currentAccount;
@@ -169,16 +172,19 @@ btnLogin.addEventListener('click', function (e) {
 });
 
 // Transfer Event
-btnTransfer.addEventListener('click', function(e) {
+btnTransfer.addEventListener('click', function (e) {
   // Prevent reloading page
-  e.preventDefault()
+  e.preventDefault();
 
-  const amount = Number(inputTransferAmount.value)
-  const receiverAcc = accounts.find((acc) => inputTransferTo.value === acc.username)
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => inputTransferTo.value === acc.username
+  );
 
   inputTransferAmount.value = inputTransferTo.value = '';
 
-  if (amount > 0 && 
+  if (
+    amount > 0 &&
     receiverAcc &&
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
@@ -186,15 +192,61 @@ btnTransfer.addEventListener('click', function(e) {
     console.log('Transfer Valid.');
 
     // Doing the transfer
-    currentAccount.movements.push(-amount)
-    receiverAcc.movements.push(amount)
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
 
-    updateUI(currentAccount)
+    updateUI(currentAccount);
+  }
+});
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov > 0.1 * amount)) {
+    console.log('Loan Valid');
+    currentAccount.movements.push(amount);
   }
 
-})
+  updateUI(currentAccount);
+});
 
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    // find the index of the current account
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    // Delette the account
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+
+    labelWelcome.textContent = 'Log in to get started';
+  }
+
+  inputClosePin.value = inputCloseUsername.value = '';
+});
+
+
+// Sort
+
+let sorted = false;
+
+btnSort.addEventListener('click', function() {
+  // e.preventDefault()
+  displayMovement(currentAccount.movements, !sorted)  
+  sorted = !sorted
+  // !sorted is to switch 'true' and 'false'
+
+})
 
 // ---------------------------------------------------
 
@@ -231,7 +283,75 @@ btnTransfer.addEventListener('click', function(e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const firstWithdrawal = movements.find(mov => mov < 0);
+
+
+
+// sorting 
+
+// return < 0 : a, b
+// return > 0 : b, a
+console.log(movements);
+
+movements.sort((a, b) => {
+  if (a > b) return 1
+  if (a < b) return -1
+
+})
+
+
+// Ascending 
+movements.sort((a, b) => a - b)
+console.log(movements);
+
+// Decending
+movements.sort((a, b) => b - a)
+
+
+labelBalance.addEventListener('click', function() {
+
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value'), (mov) => Number(mov.textContent.replace('€', '')))
+
+  console.log(movementsUI);
+
+})
+
+
+// console.log(movements);
+
+// const a = new Array(1, 2, 3, 4, 5, 6)
+// console.log(a);
+// const x = new Array(7)
+// console.log(x);
+// a.fill(13, 3)
+// console.log(a);
+
+// const y = Array.from({length: 7}, (cur, i) => i + 1)
+// console.log(y);
+
+// const overallBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov);
+
+// const overallBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov);
+
+// console.log(overallBalance);
+
+// console.log(overallBalance2);
+
+// console.log([30, 20, -10, 50, 50, 50, 40, -20, -20].reduce((acc, mov) => acc + mov));
+
+// const arr = [[[1, 2], 3], [[4, 5], 6], 7, 8]
+
+// console.log(arr.flat());
+// console.log(arr.flat(2));
+
+// console.log(movements);
+// console.log(movements.some(mov => mov > 300));
+
+// const firstWithdrawal = movements.find(mov => mov < 0);
 
 // console.log(movements);
 // console.log(firstWithdrawal);
