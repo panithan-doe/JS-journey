@@ -894,20 +894,86 @@ const movementsUI = Array.from(document.querySelectorAll('.movements__value'), (
 
 # Section 10 : Numbers, Dates, Intl and Timers
 
-## Conversion
+## Converting and Checking Numbers
 string to number 
 - `Number('23')`
 - `+'23'`
 
-`parseInt()` : to get the number from string
+`parseInt()` : to get the "integer" number from string
 - `parseInt('30px')` => 30
 - `parseInt('25r')` => 25
-you cannot use with string which have number after string
-- `parseInt('e5')` : => NaN
+- `parseInt('e5')`* : => NaN
+`parseFloat()` : to get the "floating" number from string
+- `parseFloat('0.33p')` => 0.33
+- `parseFloat('e11.20')`* => NaN
+- `parseFloat('1.44.221')` => 1.44
 
+*<ins>**NOTE**</ins> : you cannot use with string which have number after string <br>
+`isNaN()` : to check is the value "NaN" (Not a Number)
+- `Number.isNaN(20)` => false
+- `Number.isNaN(+'20X')` => true
+- `Number.isNaN(20 / 0)` => false
 
+another methods : `isInteger()` : check is integer number, `isFinite()` : check is infinity value (ex. 23/0)
 
+## Math and Rounding
+- `Math.sqrt()` : square root
+- `Math.max([array])` : find maximum
+- `Math.min([array])` : find minimum
+- `Math.PI` : 3.141592653589793
 
+Rounding integers
+- `Math.trunc()` : removing any decimal part (rounding)
+- `Math.round()` : rounding to nearest integer (23.3 => 23 , 23.9 => 24)
+- `Math.ceil()` : rounded up (23.2 => 24)
+- `Math.floor()` : rounded down (23.9 => 23)
+
+Rounding decimals
+- `([number]).toFixed([digits])` : rounding decimal <br>
+  * `(23.345).toFixed(2)` => 23.35 <br>
+  * ```javascript
+    const price = 198.92165
+    price.toFixed(3) // 198.922
+    ```
+  <ins>note</ins> : keep in mind that `toFixed()` will return `string`
+
+## Numeric Seperators
+use `_` to make your numeric value more readable
+```javascript
+const num = 230_000_000
+console.log(num)  // 230000000
+```
+
+## Working with BigInt
+in JS, the number that more than `9007199254740991` is not safe (not correctly) then use `BigInt()` and `n` to the number. for examples
+```javascript
+const huge1 = 2343241325431324321232435234n
+const huge2 = BigInt(432432)  // working correct with not huge number
+```
+NOTE : for the huge number. `BigInt([hugeNumber])` is not correct, so use `[hugeNumber]n` instead 
+```javascript
+const huge = 435453243524352345234532454n
+const num = 23
+
+// console.log(huge * num)  =>  error!, use the below
+console.log(huge * BigInt(num))
+```
+strict equation is not work😣
+```javascript
+// strict
+23n === 23  // false
+
+// loose
+23n == 23  // true
+```
+WARNING : the `Math` operators is not work with bigint
+- `Math.sqrt(16n)` => error!
+bigint cut off the decimal part when divisions
+```javascript
+10n / 3n  // 3n
+10 / 3    // 3.3333333333333335
+ 
+```
 
 [unfinished]
 
