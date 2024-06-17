@@ -894,7 +894,9 @@ const movementsUI = Array.from(document.querySelectorAll('.movements__value'), (
 
 # Section 10 : Numbers, Dates, Intl and Timers
 
-## Converting and Checking Numbers
+
+## Numbers
+### Converting and Checking Numbers
 string to number 
 - `Number('23')`
 - `+'23'`
@@ -916,7 +918,7 @@ string to number
 
 another methods : `isInteger()` : check is integer number, `isFinite()` : check is infinity value (ex. 23/0)
 
-## Math and Rounding
+### Math and Rounding
 - `Math.sqrt()` : square root
 - `Math.max([array])` : find maximum
 - `Math.min([array])` : find minimum
@@ -937,14 +939,14 @@ Rounding decimals
     ```
   <ins>note</ins> : keep in mind that `toFixed()` will return `string`
 
-## Numeric Seperators
+### Numeric Seperators
 use `_` to make your numeric value more readable
 ```javascript
 const num = 230_000_000
 console.log(num)  // 230000000
 ```
 
-## Working with BigInt
+### Working with BigInt
 in JS, the number that more than `9007199254740991` is not safe (not correctly) then use `BigInt()` and `n` to the number. for examples
 ```javascript
 const huge1 = 2343241325431324321232435234n
@@ -973,6 +975,34 @@ bigint cut off the decimal part when divisions
 10n / 3n  // 3n
 10 / 3    // 3.3333333333333335
  
+```
+
+## Date
+
+### Let's get to know about Time Zone and UTC
+โลกของเราประกอบด้วยเส้น longitude 360 เส้น (ถ้าผ่าตรงกลางโลก
+จะอยู่ซีกซ้าย 180 เส้น (-180 องศา)
+และซีกขวาอีก 180 เส้น (+180 องศา)) 
+<br>the central longitude (0 degree longitude) is Greenwich, London, England. <br>
+โลกเรากำหนดให้กรีนิช ลอนดอน สหราชอาณาจักร คือเวลาที่ 0 หรือ **UTC (Universal Time Coordinated) 0** (UTC 0)
+<br>ทุก ๆ ลองจิจูดที่เพิ่มขึ้น 15 องศา หรือ 15 เส้น (ทั้งซ้าย และขวา) จากลองจิจูดที่ 0
+จะถูกบวกหรือลบเวลาเพิ่มเข้าไปครั้งละ 1 ชั่วโมง<br>
+
+<ins>note</ins> : 15 มาจาก 360/24 (โลกเรามี 24 ชั่วโมง) <br>
+
+longitude ไทยจะอยู่ที่ประมาณ +100 องศา จะได้ 100/15 ~= 6.66667
+
+<ins>**ตัวอย่าง**</ins> เวลาที่ กรีนิช ลอนดอน สหราชอาณาจักร หรือ เวลา UTC คือ 12:00 น. (คิดแบบ 24 ชั่วโมง) <br>
+=> เวลาในประเทศไทยซึ่งเป็น UTC+7 (ณ เวลาเดียวกัน) จะเท่ากับ 12:00 น. บวกไปอีก 7 ชั่วโมง ซึ่งก็คือ 19:00 น.
+
+
+### Create a date
+```javascript
+const now = new Date()
+console.log(now)  // current timw
+console.log(new Date('December 24, 2015'))
+console.log(new Date(2037, 10, 19, 15, 23, 5))
+console.log(new Date(2037, 10, 31))  // 10 is november, which have 30 days => the result will be december, 1 instead
 ```
 
 [unfinished]
