@@ -1045,7 +1045,7 @@ how to substract days
 
 // const date = new Date(2024, 6, 18)
 const calcDaysPassed = (day1, day2) =>
-  Math.round(Math.abs(day2 - day1) / (1000 * 60 * 60 * 24));  // the day1 and day2 is in millisecond unit, so divided by (1000 * 60 * 60 * 24) to calculate in day unit
+  Math.round(Math.abs(day2 - day1) / (1000 * 60 * 60 * 24));  // the day1 and day2 are in millisecond unit, so divided by (1000 * 60 * 60 * 24) to calculate in day unit
 
 const daysPassed = calcDaysPassed(new Date(), date)
 
@@ -1058,6 +1058,50 @@ const daysPassed = calcDaysPassed(new Date(), date)
 // const year = date.getFullYear();
 // console.log(`${day}/${month}/${year}`)
 ```
+
+### Internationalizing Dates (Intl)
+```javascript
+const now = new Date()
+labelDate.textContent = new Intl.DateTimeFormat('en-US').format(now)
+```
+using options to display in different format
+```javascript
+const now = new Date()
+
+const options = {
+  hour: 'numeric',  
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'long',  // January, Febuary, ...
+  year: 'numeric',
+  weekday: 'long',  // Sunday, Monday, ...
+};  // <---
+
+// numeric => ex. 1, 2, 3, ...
+// long => ex. Sunday, Monday, ..., January, Febuary, ...
+
+labelDate.textContent = new Intl.DateTimeFormat('en-US', options).format(now)
+```
+display it dynamically using `navigator.language`. the language is according to your browser 
+```javascript
+const now = new Date()
+
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+};
+
+const locale = navigator.language  // <---
+
+labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now)
+                                                        // ^
+```
+
+### Internationalizing Numbers (Intl)
 
 
 [unfinished]
