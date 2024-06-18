@@ -1027,6 +1027,38 @@ console.log(new Date(2037, 10, 31))  // 10 is november, which have 30 days => th
 <br>.
 <br>.
 
+use `string.padStart([maxDigits], [number])` to add `number` at the front of string to complete `maxDigits` digits
+```javascript
+const now = new Date()
+
+const day = `${now.getDate()}`.padStart(2, 0)          // 02
+const month = `${now.getMonth() + 1}`.padStart(2, 0)   // 08
+const year = now.getFullYear()                         // 2037
+
+//  02/08/2037
+//  ^  ^          add 0 to complete 2 digits
+```
+
+### Operation With Dates
+how to substract days
+```javascript
+
+// const date = new Date(2024, 6, 18)
+const calcDaysPassed = (day1, day2) =>
+  Math.round(Math.abs(day2 - day1) / (1000 * 60 * 60 * 24));  // the day1 and day2 is in millisecond unit, so divided by (1000 * 60 * 60 * 24) to calculate in day unit
+
+const daysPassed = calcDaysPassed(new Date(), date)
+
+// if (daysPassed === 0) console.log(`Today`)
+// if (daysPassed === 1) console.log(`Yesterday`)
+// if (daysPassed <= 7) console.log(`${daysPassed} days ago`)
+
+// const day = `${date.getDate()}`.padStart(2, 0);
+// const month = `${date.getMonth() + 1}`.padStart(2, 0);
+// const year = date.getFullYear();
+// console.log(`${day}/${month}/${year}`)
+```
+
 
 [unfinished]
 
