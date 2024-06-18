@@ -999,11 +999,34 @@ longitude ไทยจะอยู่ที่ประมาณ +100 องศ�
 ### Create a date
 ```javascript
 const now = new Date()
-console.log(now)  // current timw
+console.log(now)  // current time
 console.log(new Date('December 24, 2015'))
-console.log(new Date(2037, 10, 19, 15, 23, 5))
-console.log(new Date(2037, 10, 31))  // 10 is november, which have 30 days => the result will be december, 1 instead
+console.log(new Date(2037, 10, 19, 15, 23, 5))  // years 2037, months 10, days 19, hours 15, minutes 23, seconds 5
+console.log(new Date(2037, 10, 31))  // 10 is november, which have 30 days => the result will be 1, december instead
 ```
+
+### get Methods
+- `getFullYear()` : get year
+- `getMonth()` : get month
+- `getDate()` : get day of month
+- `getDay()` : get day of week
+- `getHours()` : get hours
+- `getMinutes()` : get minutes
+- `getSeconds()` : get seconds
+- `getISOString()` : get ISO standard string 
+ <ins>note</ins> ISO คือ มาตรฐานการนำเสนอตามปฏิทินและเวลา <br>
+ `movementsDates` in Bankist project is ISO
+- `getTime()` : get timestamp (millisecond)
+- `Date().now()` : get current timestamp
+
+### set Methods
+- `setFullYear()` : set year
+- `setMonth()` : set month
+- `setDate()` : set day of month
+<br>.
+<br>.
+<br>.
+
 
 [unfinished]
 
