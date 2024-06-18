@@ -1102,9 +1102,31 @@ labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now)
 ```
 
 ### Internationalizing Numbers (Intl)
+to format the number values, speed unit like `mph`, temperature like celsius
+```javascript
+const num = 3243243.23
 
+const options = {
+  style: 'unit',
+  unit: 'mile-per-hour',  // default is "," or "." whatever to number value
+
+};
+
+console.log(new Intl.NumberFormat('en-US').format(num));
+// 3,243,243.23
+
+console.log(new Intl.NumberFormat('de-DE').format(num));
+// 3.243.243,23
+
+console.log(new Intl.NumberFormat('en-US', options).format(num));
+// 3,243,243.23 mph
+```
 
 [unfinished]
 
 # Section 11 : Advanced DOM and Events
+
+[unfinished]
+
+# Section 12 : Opject-Oriented Programming (OOP)
 
