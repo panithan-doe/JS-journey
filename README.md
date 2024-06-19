@@ -1,4 +1,4 @@
-# JS-journey
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/f8daa7c8-21b1-454c-b3b0-f70472a1b1b3)# JS-journey
 This is my github for archive my journey of "JavaScript" to be a great Dev! This is the result by learning from the course "The complete JavaScript Course" by " " 
 
 <ins>Note</ins> : to find the unfinished contents, press the `Ctrl + F` and type `unfinished`
@@ -1130,3 +1130,30 @@ console.log(new Intl.NumberFormat('en-US', options).format(num));
 
 # Section 12 : Opject-Oriented Programming (OOP)
 
+[unfinished]
+
+### Abstract
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/67fdea23-a7a9-416f-a97d-e97b080cc7f6)
+: no details about each methods, there are just the method name 
+
+### Encapsulation
+: to keep some proporties and methods private (cannot access outside the class)
+: some methods can be exposed as a public interface which we called API
+
+### Polymorphism
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/a23f6ab3-ca5c-4d33-ac27-b2a6e07a3d24)
+: method ที่มีชื่อเหมือนกันแต่ทำงานต่างกันจาก class ที่ inherit มา
+
+### Instance
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/2d9afa46-0d92-4698-8074-ff55cb755200)
+: object ที่สร้างขึ้นจาก class ทำให้สามารถใช้งาน method ต่าง ๆ ได้
+
+### Prototype
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/88be1d77-fd59-4f16-b298-bf2a789bfae7)
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/f54669ab-2cbe-4751-96bf-1baf7f44db78)
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/9e8d802f-b097-444e-871f-141f7b37ad98)
+
+<br> <ins>note</ins> : the prototype properties is not in object itself.
+![image](https://github.com/panithan-doe/JS-journey/assets/117891598/af374024-ce67-46be-a88c-a99c1ae93671)
+
+you cannot see `calcAge()`, but you can see it in `__proto__`
