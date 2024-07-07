@@ -1,4 +1,4 @@
-![image](https://github.com/panithan-doe/JS-journey/assets/117891598/f8daa7c8-21b1-454c-b3b0-f70472a1b1b3)# JS-journey
+# JS-journey
 This is my github for archive my journey of "JavaScript" to be a great Dev! This is the result by learning from the course "The complete JavaScript Course" by " " 
 
 <ins>Note</ins> : to find the unfinished contents, press the `Ctrl + F` and type `unfinished`
@@ -1157,3 +1157,27 @@ console.log(new Intl.NumberFormat('en-US', options).format(num));
 ![image](https://github.com/panithan-doe/JS-journey/assets/117891598/af374024-ce67-46be-a88c-a99c1ae93671)
 
 you cannot see `calcAge()`, but you can see it in `__proto__`
+
+### Using `class`
+```javascript
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName
+    this.birthYear = birthYear
+  }
+
+  // Methods will be added into .prototype property
+  calcAge() {
+    console.log(2024 - this.birthYear);
+  }
+}
+```
+
+### Getter & Setter
+- `getter`
+  ```javascript
+  get latest() {
+    return this.movements.slice(-1).pop();
+  }
+  ```
+- `setter`
